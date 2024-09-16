@@ -16,8 +16,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Bookly',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      theme: ThemeData.dark(
         useMaterial3: true,
       ).copyWith(
         scaffoldBackgroundColor: kPrimaryColor,
