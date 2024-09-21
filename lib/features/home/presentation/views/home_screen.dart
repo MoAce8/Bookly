@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: kPrimaryColor,
         title: Image.asset(
           AssetsData.logo,
-          height: 24,
+          height: 20,
         ),
         actions: [
           IconButton(
