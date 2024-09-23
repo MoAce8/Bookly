@@ -14,6 +14,7 @@ class HomeScreen extends StatelessWidget {
         leading: const SizedBox(),
         leadingWidth: 0,
         backgroundColor: kPrimaryColor,
+        surfaceTintColor: kPrimaryColor,
         title: Image.asset(
           AssetsData.logo,
           height: 20,
