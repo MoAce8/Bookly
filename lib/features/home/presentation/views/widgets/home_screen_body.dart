@@ -20,7 +20,7 @@ class HomeScreenBody extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 24),
             child: Text(
               'Best Seller',
-              style: Styles.titleMedium,
+              style: Styles.text18,
             ),
           ),
 
