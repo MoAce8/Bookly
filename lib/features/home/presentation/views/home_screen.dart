@@ -11,16 +11,18 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const SizedBox(),
-        leadingWidth: 0,
         backgroundColor: kPrimaryColor,
         surfaceTintColor: kPrimaryColor,
-        title: Image.asset(
-          AssetsData.logo,
-          height: 20,
+        title: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          child: Image.asset(
+            AssetsData.logo,
+            height: 20,
+          ),
         ),
         actions: [
           IconButton(
+          padding: const EdgeInsets.symmetric(horizontal: 22),
             onPressed: () {},
             icon: const Icon(FontAwesomeIcons.magnifyingGlass),
           ),
