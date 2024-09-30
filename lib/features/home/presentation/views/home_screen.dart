@@ -3,6 +3,7 @@ import 'package:bookly/core/utils/assets.dart';
 import 'package:bookly/features/home/presentation/views/widgets/home_screen_body.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -22,8 +23,10 @@ class HomeScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-          padding: const EdgeInsets.symmetric(horizontal: 22),
-            onPressed: () {},
+            padding: const EdgeInsets.symmetric(horizontal: 22),
+            onPressed: () {
+              GoRouter.of(context).push('/search');
+            },
             icon: const Icon(FontAwesomeIcons.magnifyingGlass),
           ),
         ],
