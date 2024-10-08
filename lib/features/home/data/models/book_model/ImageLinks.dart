@@ -4,8 +4,8 @@ class ImageLinks {
     required this.thumbnail,
   });
 
-  final String? smallThumbnail;
-  final String? thumbnail;
+  final String smallThumbnail;
+  final String thumbnail;
 
   factory ImageLinks.fromJson(Map<String, dynamic> json){
     return ImageLinks(

@@ -20,7 +20,7 @@ class BookModel {
   final String? id;
   final String? etag;
   final String? selfLink;
-  final VolumeInfo? volumeInfo;
+  final VolumeInfo volumeInfo;
   final SaleInfo? saleInfo;
   final AccessInfo? accessInfo;
   final SearchInfo? searchInfo;
@@ -31,7 +31,7 @@ class BookModel {
       id: json["id"],
       etag: json["etag"],
       selfLink: json["selfLink"],
-      volumeInfo: json["volumeInfo"] == null ? null : VolumeInfo.fromJson(json["volumeInfo"]),
+      volumeInfo: VolumeInfo.fromJson(json["volumeInfo"]),
       saleInfo: json["saleInfo"] == null ? null : SaleInfo.fromJson(json["saleInfo"]),
       accessInfo: json["accessInfo"] == null ? null : AccessInfo.fromJson(json["accessInfo"]),
       searchInfo: json["searchInfo"] == null ? null : SearchInfo.fromJson(json["searchInfo"]),
@@ -43,7 +43,7 @@ class BookModel {
     "id": id,
     "etag": etag,
     "selfLink": selfLink,
-    "volumeInfo": volumeInfo?.toJson(),
+    "volumeInfo": volumeInfo.toJson(),
     "saleInfo": saleInfo?.toJson(),
     "accessInfo": accessInfo?.toJson(),
     "searchInfo": searchInfo?.toJson(),

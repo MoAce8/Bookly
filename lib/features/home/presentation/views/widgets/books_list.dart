@@ -1,6 +1,10 @@
 import 'package:bookly/constants.dart';
+import 'package:bookly/core/widgets/custom_error_widget.dart';
+import 'package:bookly/core/widgets/loading_indicator.dart';
+import 'package:bookly/features/home/presentation/view_models/featured_books_cubit/featured_books_cubit.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class BooksList extends StatelessWidget {
@@ -10,22 +14,35 @@ class BooksList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: screenHeight(context) * .32,
-      child: ListView.builder(
-        itemCount: 6,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) => Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8),
-          child: GestureDetector(
-            onTap: () {
-              GoRouter.of(context).push('/bookDetails');
-            },
-            child: const BookCard(),
-          ),
-        ),
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-      ),
+    return BlocBuilder<FeaturedBooksCubit, FeaturedBooksState>(
+      builder: (context, state) {
+        if (state is FeaturedBooksSuccess) {
+          return SizedBox(
+            height: screenHeight(context) * .32,
+            child: ListView.builder(
+              itemCount: state.books.length,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) => Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: GestureDetector(
+                  onTap: () {
+                    GoRouter.of(context).push('/bookDetails');
+                  },
+                  child: BookCard(
+                    imageURL:
+                        state.books[index].volumeInfo.imageLinks.thumbnail,
+                  ),
+                ),
+              ),
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+            ),
+          );
+        } else if (state is FeaturedBooksFailure) {
+          return CustomErrorWidget(errMessage: state.errMessage);
+        } else {
+          return const LoadingIndicator();
+        }
+      },
     );
   }
 }

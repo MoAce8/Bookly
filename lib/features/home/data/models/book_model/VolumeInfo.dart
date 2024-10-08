@@ -38,7 +38,7 @@ class VolumeInfo {
   final bool? allowAnonLogging;
   final String? contentVersion;
   final PanelizationSummary? panelizationSummary;
-  final ImageLinks? imageLinks;
+  final ImageLinks imageLinks;
   final String? language;
   final String? previewLink;
   final String? infoLink;
@@ -66,7 +66,7 @@ class VolumeInfo {
       panelizationSummary: json["panelizationSummary"] == null
           ? null
           : PanelizationSummary.fromJson(json["panelizationSummary"]),
-      imageLinks: json["imageLinks"] == null ? null : ImageLinks.fromJson(
+      imageLinks:ImageLinks.fromJson(
           json["imageLinks"]),
       language: json["language"],
       previewLink: json["previewLink"],
@@ -91,7 +91,7 @@ class VolumeInfo {
         "allowAnonLogging": allowAnonLogging,
         "contentVersion": contentVersion,
         "panelizationSummary": panelizationSummary?.toJson(),
-        "imageLinks": imageLinks?.toJson(),
+        "imageLinks": imageLinks.toJson(),
         "language": language,
         "previewLink": previewLink,
         "infoLink": infoLink,

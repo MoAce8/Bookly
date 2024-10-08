@@ -19,7 +19,7 @@ class SimilarBooksListview extends StatelessWidget {
             onTap: () {
               GoRouter.of(context).push('/bookDetails');
             },
-            child: const BookCard(),
+            child: const BookCard(imageURL: '',),
           ),
         ),
       ),
