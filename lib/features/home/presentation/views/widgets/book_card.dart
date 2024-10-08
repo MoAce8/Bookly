@@ -1,26 +1,24 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class BookCard extends StatelessWidget {
   const BookCard({
     super.key,
-    required this.imageURL,
+    required this.imageUrl,
   });
 
-  final String imageURL;
+  final String imageUrl;
 
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
       aspectRatio: 2 / 3,
-      child: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: NetworkImage(
-              imageURL,
-            ),
-            fit: BoxFit.contain,
-          ),
-          borderRadius: BorderRadius.circular(14),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(14),
+        child: CachedNetworkImage(
+          imageUrl: imageUrl,
+          fit: BoxFit.fill,
+          errorWidget: (context, url, error) => const Icon(Icons.error_outline),
         ),
       ),
     );

@@ -26,7 +26,7 @@ class BookDetailsScreenBody extends StatelessWidget {
                   padding: EdgeInsets.symmetric(
                     horizontal: screenWidth(context) * .265 - 24,
                   ),
-                  child: const BookCard(imageURL: '',),
+                  child: const BookCard(imageUrl: '',),
                 ),
                 const SizedBox(
                   height: 45,

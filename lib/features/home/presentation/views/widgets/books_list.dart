@@ -22,6 +22,7 @@ class BooksList extends StatelessWidget {
             child: ListView.builder(
               itemCount: state.books.length,
               scrollDirection: Axis.horizontal,
+              physics: const BouncingScrollPhysics(),
               itemBuilder: (context, index) => Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8),
                 child: GestureDetector(
@@ -29,7 +30,7 @@ class BooksList extends StatelessWidget {
                     GoRouter.of(context).push('/bookDetails');
                   },
                   child: BookCard(
-                    imageURL:
+                    imageUrl:
                         state.books[index].volumeInfo.imageLinks.thumbnail,
                   ),
                 ),
