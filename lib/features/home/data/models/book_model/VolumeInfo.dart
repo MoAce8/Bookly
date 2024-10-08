@@ -23,6 +23,8 @@ class VolumeInfo {
     required this.previewLink,
     required this.infoLink,
     required this.canonicalVolumeLink,
+    required this.averageRating,
+    required this.ratingsCount,
   });
 
   final String? title;
@@ -43,6 +45,8 @@ class VolumeInfo {
   final String? previewLink;
   final String? infoLink;
   final String? canonicalVolumeLink;
+  final num? averageRating;
+  final int? ratingsCount;
 
   factory VolumeInfo.fromJson(Map<String, dynamic> json){
     return VolumeInfo(
@@ -60,6 +64,8 @@ class VolumeInfo {
       printType: json["printType"],
       categories: json["categories"] == null ? [] : List<String>.from(
           json["categories"]!.map((x) => x)),
+      averageRating: json["averageRating"]??0,
+      ratingsCount: json["ratingsCount"]??0,
       maturityRating: json["maturityRating"],
       allowAnonLogging: json["allowAnonLogging"],
       contentVersion: json["contentVersion"],
@@ -87,6 +93,8 @@ class VolumeInfo {
         "pageCount": pageCount,
         "printType": printType,
         "categories": categories.map((x) => x).toList(),
+        "averageRating": averageRating,
+        "ratingsCount": ratingsCount,
         "maturityRating": maturityRating,
         "allowAnonLogging": allowAnonLogging,
         "contentVersion": contentVersion,

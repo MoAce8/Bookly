@@ -48,7 +48,7 @@ class BookDetailsScreenBody extends StatelessWidget {
                 const SizedBox(
                   height: 14,
                 ),
-                const RatingRow(),
+                const RatingRow(rate: 4,count: 5,),
                 const SizedBox(
                   height: 37,
                 ),
