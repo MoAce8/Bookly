@@ -24,7 +24,9 @@ class BestSellerItem extends StatelessWidget {
         height: screenHeight(context) * .165,
         child: Row(
           children: [
-            BookCard(imageUrl: bookModel.volumeInfo.imageLinks.thumbnail),
+            BookCard(
+              imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? '',
+            ),
             const SizedBox(
               width: 30,
             ),

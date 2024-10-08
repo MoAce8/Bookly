@@ -40,7 +40,7 @@ class VolumeInfo {
   final bool? allowAnonLogging;
   final String? contentVersion;
   final PanelizationSummary? panelizationSummary;
-  final ImageLinks imageLinks;
+  final ImageLinks? imageLinks;
   final String? language;
   final String? previewLink;
   final String? infoLink;
@@ -48,32 +48,37 @@ class VolumeInfo {
   final num? averageRating;
   final int? ratingsCount;
 
-  factory VolumeInfo.fromJson(Map<String, dynamic> json){
+  factory VolumeInfo.fromJson(Map<String, dynamic> json) {
     return VolumeInfo(
       title: json["title"],
-      authors: json["authors"] == null ? [] : List<String>.from(
-          json["authors"]!.map((x) => x)),
+      authors: json["authors"] == null
+          ? []
+          : List<String>.from(json["authors"]!.map((x) => x)),
       publishedDate: json["publishedDate"],
       description: json["description"],
-      industryIdentifiers: json["industryIdentifiers"] == null ? [] : List<
-          IndustryIdentifiers>.from(json["industryIdentifiers"]!.map((x) =>
-          IndustryIdentifiers.fromJson(x))),
-      readingModes: json["readingModes"] == null ? null : ReadingModes.fromJson(
-          json["readingModes"]),
+      industryIdentifiers: json["industryIdentifiers"] == null
+          ? []
+          : List<IndustryIdentifiers>.from(json["industryIdentifiers"]!
+              .map((x) => IndustryIdentifiers.fromJson(x))),
+      readingModes: json["readingModes"] == null
+          ? null
+          : ReadingModes.fromJson(json["readingModes"]),
       pageCount: json["pageCount"],
       printType: json["printType"],
-      categories: json["categories"] == null ? [] : List<String>.from(
-          json["categories"]!.map((x) => x)),
-      averageRating: json["averageRating"]??0,
-      ratingsCount: json["ratingsCount"]??0,
+      categories: json["categories"] == null
+          ? []
+          : List<String>.from(json["categories"]!.map((x) => x)),
+      averageRating: json["averageRating"] ?? 0,
+      ratingsCount: json["ratingsCount"] ?? 0,
       maturityRating: json["maturityRating"],
       allowAnonLogging: json["allowAnonLogging"],
       contentVersion: json["contentVersion"],
       panelizationSummary: json["panelizationSummary"] == null
           ? null
           : PanelizationSummary.fromJson(json["panelizationSummary"]),
-      imageLinks:ImageLinks.fromJson(
-          json["imageLinks"]),
+      imageLinks: json["imageLinks"] == null
+          ? null
+          : ImageLinks.fromJson(json["imageLinks"]),
       language: json["language"],
       previewLink: json["previewLink"],
       infoLink: json["infoLink"],
@@ -81,14 +86,13 @@ class VolumeInfo {
     );
   }
 
-  Map<String, dynamic> toJson() =>
-      {
+  Map<String, dynamic> toJson() => {
         "title": title,
         "authors": authors,
         "publishedDate": publishedDate,
         "description": description,
-        "industryIdentifiers": industryIdentifiers?.map((x) => x.toJson())
-            .toList(),
+        "industryIdentifiers":
+            industryIdentifiers?.map((x) => x.toJson()).toList(),
         "readingModes": readingModes?.toJson(),
         "pageCount": pageCount,
         "printType": printType,
@@ -99,11 +103,10 @@ class VolumeInfo {
         "allowAnonLogging": allowAnonLogging,
         "contentVersion": contentVersion,
         "panelizationSummary": panelizationSummary?.toJson(),
-        "imageLinks": imageLinks.toJson(),
+        "imageLinks": imageLinks?.toJson(),
         "language": language,
         "previewLink": previewLink,
         "infoLink": infoLink,
         "canonicalVolumeLink": canonicalVolumeLink,
       };
-
 }

@@ -31,7 +31,8 @@ class BooksList extends StatelessWidget {
                   },
                   child: BookCard(
                     imageUrl:
-                        state.books[index].volumeInfo.imageLinks.thumbnail,
+                        state.books[index].volumeInfo.imageLinks?.thumbnail ??
+                            '',
                   ),
                 ),
               ),
