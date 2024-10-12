@@ -1,11 +1,27 @@
 import 'package:bookly/constants.dart';
+import 'package:bookly/features/home/data/models/book_model/BookModel.dart';
+import 'package:bookly/features/home/presentation/view_models/similar_books_cubit/similar_books_cubit.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_details_screen_body.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class BookDetailsScreen extends StatelessWidget {
-  const BookDetailsScreen({super.key});
+class BookDetailsScreen extends StatefulWidget {
+  const BookDetailsScreen({super.key, required this.book});
+
+  final BookModel book;
+
+  @override
+  State<BookDetailsScreen> createState() => _BookDetailsScreenState();
+}
+
+class _BookDetailsScreenState extends State<BookDetailsScreen> {
+  @override
+  void initState() {
+    SimilarBooksCubit.get(context)
+        .fetchSimilarBooks(category: widget.book.volumeInfo.categories[0]);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +46,9 @@ class BookDetailsScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: const BookDetailsScreenBody(),
+      body: BookDetailsScreenBody(
+        book: widget.book,
+      ),
     );
   }
 }

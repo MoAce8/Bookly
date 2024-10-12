@@ -11,7 +11,7 @@ class BookActionButtons extends StatelessWidget {
       children: [
         const Expanded(
           child: CustomButton(
-            title: '19.99€',
+            title: 'Free',
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(16),
               bottomLeft: Radius.circular(16),

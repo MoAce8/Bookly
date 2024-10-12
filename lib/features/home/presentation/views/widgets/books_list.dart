@@ -27,7 +27,10 @@ class BooksList extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 8),
                 child: GestureDetector(
                   onTap: () {
-                    GoRouter.of(context).push('/bookDetails');
+                    GoRouter.of(context).push(
+                      '/bookDetails',
+                      extra: state.books[index],
+                    );
                   },
                   child: BookCard(
                     imageUrl:
