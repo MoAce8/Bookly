@@ -1,5 +1,5 @@
 import 'package:bookly/constants.dart';
-import 'package:bookly/features/home/data/models/book_model/BookModel.dart';
+import 'package:bookly/core/models/book_model/BookModel.dart';
 import 'package:bookly/features/home/presentation/view_models/similar_books_cubit/similar_books_cubit.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_details_screen_body.dart';
 import 'package:flutter/cupertino.dart';

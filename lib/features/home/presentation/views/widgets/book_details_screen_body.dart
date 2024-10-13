@@ -1,6 +1,6 @@
 import 'package:bookly/constants.dart';
+import 'package:bookly/core/models/book_model/BookModel.dart';
 import 'package:bookly/core/utils/styles.dart';
-import 'package:bookly/features/home/data/models/book_model/BookModel.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_action_buttons.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_card.dart';
 import 'package:bookly/features/home/presentation/views/widgets/rating_row.dart';

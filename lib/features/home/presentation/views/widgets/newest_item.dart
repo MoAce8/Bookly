@@ -1,13 +1,13 @@
 import 'package:bookly/constants.dart';
+import 'package:bookly/core/models/book_model/BookModel.dart';
 import 'package:bookly/core/utils/styles.dart';
-import 'package:bookly/features/home/data/models/book_model/BookModel.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_card.dart';
 import 'package:bookly/features/home/presentation/views/widgets/rating_row.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class BestSellerItem extends StatelessWidget {
-  const BestSellerItem({
+class NewestItem extends StatelessWidget {
+  const NewestItem({
     super.key,
     required this.bookModel,
   });

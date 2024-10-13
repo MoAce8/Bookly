@@ -15,7 +15,7 @@ class ResultsListview extends StatelessWidget {
         if (state is SearchSuccess) {
           return ListView.separated(
             itemBuilder: (context, index) =>
-                BestSellerItem(bookModel: state.books[index]),
+                NewestItem(bookModel: state.books[index]),
             separatorBuilder: (context, index) => const SizedBox(
               height: 20,
             ),

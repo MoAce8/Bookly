@@ -5,8 +5,8 @@ import 'package:bookly/features/home/presentation/views/widgets/newest_item.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class BestSellerListview extends StatelessWidget {
-  const BestSellerListview({super.key});
+class NewestListview extends StatelessWidget {
+  const NewestListview({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class BestSellerListview extends StatelessWidget {
                   left: 24,
                   right: 24,
                 ),
-                child: BestSellerItem(
+                child: NewestItem(
                   bookModel: state.books[index],
                 ),
               ),

@@ -35,7 +35,7 @@ class HomeScreenBody extends StatelessWidget {
             ),
           ),
         ),
-        BestSellerListview(),
+        NewestListview(),
       ],
     );
   }
