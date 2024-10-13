@@ -18,7 +18,7 @@ class BestSellerItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push('/bookDetails',extra: bookModel);
+        GoRouter.of(context).push('/bookDetails', extra: bookModel);
       },
       child: SizedBox(
         height: screenHeight(context) * .165,
@@ -53,7 +53,12 @@ class BestSellerItem extends StatelessWidget {
                   Opacity(
                     opacity: .7,
                     child: Text(
-                      bookModel.volumeInfo.authors![0],
+                      bookModel.volumeInfo.authors!.isEmpty
+                          ? 'Unknown'
+                          : bookModel.volumeInfo.authors![0],
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.center,
                       style: Styles.text14.copyWith(
                         fontWeight: FontWeight.w500,
                       ),

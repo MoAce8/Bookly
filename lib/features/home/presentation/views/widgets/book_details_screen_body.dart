@@ -49,6 +49,7 @@ class BookDetailsScreenBody extends StatelessWidget {
                   child: Text(
                     book.volumeInfo.authors?[0] ?? 'Unknown',
                     style: Styles.text18.copyWith(fontWeight: FontWeight.w500),
+                    textAlign: TextAlign.center,
                   ),
                 ),
                 const SizedBox(

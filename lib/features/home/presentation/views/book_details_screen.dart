@@ -18,8 +18,9 @@ class BookDetailsScreen extends StatefulWidget {
 class _BookDetailsScreenState extends State<BookDetailsScreen> {
   @override
   void initState() {
-    SimilarBooksCubit.get(context)
-        .fetchSimilarBooks(category: widget.book.volumeInfo.categories[0]);
+    bool hasData = widget.book.volumeInfo.categories.isNotEmpty;
+    SimilarBooksCubit.get(context).fetchSimilarBooks(
+        category: hasData ? widget.book.volumeInfo.categories[0] : 'fantasy');
     super.initState();
   }
 
